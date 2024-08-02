@@ -1,4 +1,3 @@
-import { raw } from "express";
 import Redis from "ioredis";
 const rawRedisClient = new Redis();
 
@@ -21,9 +20,8 @@ export const exportedRedisClient = {
     );
     return clicks.filter(click => click === userId).length;
   },
-  getCount: async () => {
-    const count = await rawRedisClient.get("count");
-    return parseInt(count ?? "0");
+  getCount: () => {
+    return rawRedisClient.get("count");
   },
   truncateQueue: (range: number = 10000) => {
     //remove all clicks older than the given range
