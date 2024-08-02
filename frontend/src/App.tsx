@@ -3,7 +3,7 @@ import './App.css'
 
 
 const getCount = async () => {
-  const response = await fetch('http://192.168.1.71:3000/api/count');
+  const response = await fetch('/api/count');
   if (!response.ok) { // {{ edit_1 }}
     throw new Error('Network response was not ok'); // {{ edit_2 }}
   }
@@ -12,7 +12,7 @@ const getCount = async () => {
 }
 
 const getBufferCount = async (userId: string) => {
-  const response = await fetch(`http://192.168.1.71:3000/api/buffer/${userId}`);
+  const response = await fetch(`/api/buffer/${userId}`);
   if (!response.ok) { // {{ edit_1 }}
     throw new Error('Network response was not ok'); // {{ edit_2 }}
   }
@@ -36,7 +36,7 @@ function App() {
 
 
 const onClick = async () => {
-  fetch(`http://192.168.1.71:3000/api/click/${userId}`, {
+  fetch(`/api/click/${userId}`, {
     method: 'POST'
   })
 }

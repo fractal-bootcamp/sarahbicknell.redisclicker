@@ -1,5 +1,5 @@
 import Redis from "ioredis";
-const rawRedisClient = new Redis();
+const rawRedisClient = new Redis("redis://red-cqmliclds78s7390utog:6379");
 
 export const exportedRedisClient = {
   addClick: (time: Date, userId: string) => {
